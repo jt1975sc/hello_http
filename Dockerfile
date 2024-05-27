@@ -8,5 +8,5 @@ RUN ls -lh /BUILD
 
 FROM scratch AS hw_sratch
 COPY --from=hw_build /BUILD/dummyserv /dummyserv
-CMD ["/dummyserv", "8081"]
-EXPOSE 8081
+CMD ["/dummyserv", "12344"]
+EXPOSE 12344
