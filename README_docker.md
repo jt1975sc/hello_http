@@ -2,8 +2,7 @@
 Hello world with a webserver in C
 
 
-# Docker
-
+# Install Docker (https://docs.docker.com/desktop/)
 
 ## Setup Instructions
 
