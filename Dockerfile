@@ -1,12 +1,14 @@
-FROM ubuntu AS hw_build
-WORKDIR /BUILD
-COPY dummy_serv.c .
-RUN apt-get update
-RUN apt-get install gcc -y
-RUN gcc -o dummyserv -static dummy_serv.c
-RUN ls -lh /BUILD
+# Dockerfile
+FROM node:14-alpine
 
-FROM scratch AS hw_sratch
-COPY --from=hw_build /BUILD/dummyserv /dummyserv
-CMD ["/dummyserv", "12344"]
-EXPOSE 12344
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --production
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "src/index.js"]
