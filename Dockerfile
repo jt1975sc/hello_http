@@ -1,14 +1,16 @@
 # Dockerfile
-FROM node:14-alpine
+FROM node:14
+
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
-RUN yarn install --production
+RUN npm install
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "src/index.js"]
+# Command to run the app
+CMD ["npm", "start"]
